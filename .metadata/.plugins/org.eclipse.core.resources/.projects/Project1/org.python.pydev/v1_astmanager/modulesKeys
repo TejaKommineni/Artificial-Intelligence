@@ -1,0 +1,21 @@
+MODULES_MANAGER_V2
+autograder|T:\Workspaces\Artificial Intelligence\Project1\autograder.py
+eightpuzzle|T:\Workspaces\Artificial Intelligence\Project1\eightpuzzle.py
+game|T:\Workspaces\Artificial Intelligence\Project1\game.py
+ghostAgents|T:\Workspaces\Artificial Intelligence\Project1\ghostAgents.py
+grading|T:\Workspaces\Artificial Intelligence\Project1\grading.py
+graphicsDisplay|T:\Workspaces\Artificial Intelligence\Project1\graphicsDisplay.py
+graphicsUtils|T:\Workspaces\Artificial Intelligence\Project1\graphicsUtils.py
+keyboardAgents|T:\Workspaces\Artificial Intelligence\Project1\keyboardAgents.py
+layout|T:\Workspaces\Artificial Intelligence\Project1\layout.py
+pacman|T:\Workspaces\Artificial Intelligence\Project1\pacman.py
+pacmanAgents|T:\Workspaces\Artificial Intelligence\Project1\pacmanAgents.py
+projectParams|T:\Workspaces\Artificial Intelligence\Project1\projectParams.py
+search|T:\Workspaces\Artificial Intelligence\Project1\search.py
+searchAgents|T:\Workspaces\Artificial Intelligence\Project1\searchAgents.py
+searchTestClasses|T:\Workspaces\Artificial Intelligence\Project1\searchTestClasses.py
+submission_autograder|T:\Workspaces\Artificial Intelligence\Project1\submission_autograder.py
+testClasses|T:\Workspaces\Artificial Intelligence\Project1\testClasses.py
+testParser|T:\Workspaces\Artificial Intelligence\Project1\testParser.py
+textDisplay|T:\Workspaces\Artificial Intelligence\Project1\textDisplay.py
+util|T:\Workspaces\Artificial Intelligence\Project1\util.py
