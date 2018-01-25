@@ -10,6 +10,7 @@
 # (denero@cs.berkeley.edu) and Dan Klein (klein@cs.berkeley.edu).
 # Student side autograding was added by Brad Miller, Nick Hay, and
 # Pieter Abbeel (pabbeel@cs.berkeley.edu).
+import searchAgents
 
 
 """
@@ -88,34 +89,29 @@ def depthFirstSearch(problem):
     """
     "*** YOUR CODE HERE ***"
     ans = []
-    parent_child = {}   
+    parent_child = {}
+    visited = set()   
     stack = util.Stack()
     stack.push((problem.getStartState(), 'root', 0.0))    
-    state = ''
+    state = ()
     while not stack.isEmpty():
         state = stack.pop()
+        visited.add(state[0])
         if problem.isGoalState(state[0]):            
             break
         for temp_state in  problem.getSuccessors(state[0]):
-            if temp_state[1] in parent_child:
+            if temp_state[0] in visited:
                 continue
             else:
-                parent_child[temp_state[1]] = state[1]
+                parent_child[temp_state] = state
                 stack.push(temp_state)
-    root = state[1]
-    while root != 'root':
-        ans.append(root)
-        root = parent_child[root]
+    root = state
+    while root != (problem.getStartState(), 'root', 0.0):
+        ans.append(root[1])
+        root = parent_child[root]   
     ans.reverse()
     print ans
-    return ans
-                
-         
-        
-                
-            
-    
-    
+    return ans    
     util.raiseNotDefined()
 
 def breadthFirstSearch(problem):
@@ -126,6 +122,35 @@ def breadthFirstSearch(problem):
 def uniformCostSearch(problem):
     """Search the node of least total cost first."""
     "*** YOUR CODE HERE ***"
+    ans = []
+    parent_child = {}
+    visited = set()   
+    queue = util.PriorityQueue()
+    queue.push((problem.getStartState(), 'root', 0.0),0)    
+    state = ()
+    while not queue.isEmpty():
+        state = queue.pop()
+        if state[0] in visited:
+            continue
+        visited.add(state[0])
+        if problem.isGoalState(state[0]):            
+            break
+        for temp_state in  problem.getSuccessors(state[0]):
+            if temp_state[0] in visited:
+                continue
+            else:
+                lst = list(temp_state)
+                lst[2] = lst[2]+state[2]
+                temp_state = tuple(lst)
+                parent_child[temp_state] = state
+                queue.push(temp_state,temp_state[2])
+    root = state
+    while root != (problem.getStartState(), 'root', 0.0):
+        ans.append(root[1])
+        root = parent_child[root]   
+    ans.reverse()
+    print ans
+    return ans
     util.raiseNotDefined()
 
 def nullHeuristic(state, problem=None):
@@ -133,11 +158,42 @@ def nullHeuristic(state, problem=None):
     A heuristic function estimates the cost from the current state to the nearest
     goal in the provided SearchProblem.  This heuristic is trivial.
     """
+    
     return 0
 
 def aStarSearch(problem, heuristic=nullHeuristic):
     """Search the node that has the lowest combined cost and heuristic first."""
     "*** YOUR CODE HERE ***"
+    ans = []
+    parent_child = {}
+    visited = set()   
+    queue = util.PriorityQueue()
+    queue.push((problem.getStartState(), 'root', 0.0),0)    
+    state = ()
+    while not queue.isEmpty():
+        state = queue.pop()
+        if state[0] in visited:
+            continue
+        visited.add(state[0])
+        if problem.isGoalState(state[0]):            
+            break
+        for temp_state in  problem.getSuccessors(state[0]):
+            if temp_state[0] in visited:
+                continue
+            else:
+                lst = list(temp_state)
+                lst[2] = lst[2]+state[2]
+                temp_state = tuple(lst)
+                parent_child[temp_state] = state
+                heur = heuristic(temp_state[0],problem)
+                queue.push(temp_state,temp_state[2]+heur)
+    root = state
+    while root != (problem.getStartState(), 'root', 0.0):
+        ans.append(root[1])
+        root = parent_child[root]   
+    ans.reverse()
+    print ans
+    return ans
     util.raiseNotDefined()
 
 

@@ -501,6 +501,7 @@ class AnyFoodSearchProblem(PositionSearchProblem):
     You can use this search problem to help you fill in the findPathToClosestDot
     method.
     """
+    
 
     def __init__(self, gameState):
         "Stores information from the gameState.  You don't need to change this."
@@ -520,8 +521,7 @@ class AnyFoodSearchProblem(PositionSearchProblem):
         """
         x,y = state
 
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        "*** YOUR CODE HERE ***"        
 
 def mazeDistance(point1, point2, gameState):
     """
