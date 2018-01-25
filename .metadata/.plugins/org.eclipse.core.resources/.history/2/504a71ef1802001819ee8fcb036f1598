@@ -472,41 +472,53 @@ def foodHeuristic(state, problem):
     """
     position, foodGrid = state
     "*** YOUR CODE HERE ***"
-    H = 0
-    maxDistance = 0
-    # find the farthest distance by Astar search using mazeDistance() function.
-    for y in range(foodGrid.height):
-        for x in range(foodGrid.width):
-            if (foodGrid[x][y] == 1) and (mazeDistance(position,(x,y),problem.startingGameState) > maxDistance):
-                maxDistance = mazeDistance(position,(x,y),problem.startingGameState)
-    H = maxDistance     
-    return H       
+        
     #maxDistance=0
     #for i in foodGrid.asList():
     #    maxDistance=max(maxDistance,util.manhattanDistance(position,i))
     #return maxDistance
     
-    gs = problem.startingGameState
-    foodList = foodGrid.asList()
-    foodCount = len(foodList)
-    max_dis = 0
-    part_max_dis = 0
-
-    for i in range(foodCount):
-        for ii in range(foodCount-i-1):
-            dis = mazeDistance(foodList[i],foodList[ii+1],gs)
-            if dis > max_dis:
-                max_dis = dis
-                furthest1 = foodList[i]
-                furthest2 = foodList[ii+1]
-                part1 = mazeDistance(position,foodList[i],gs)
-                part2 = mazeDistance(position,foodList[ii+1],gs)
-                if part1 > part2:
-                    part_max_dis = part2
-                else:
-                    part_max_dis = part1
-    
-    return max_dis+part_max_dis 
+    result=0
+    next_foodGrid=foodGrid.deepCopy()
+    next_position=position[:]
+    finished=False
+    for y in range(foodGrid.height):
+      for x in range(foodGrid.width):
+        
+        #print "Step ",x,y,next_position,next_foodGrid
+        #compute the distances
+        dist_to_dots=[]
+        for y2 in range(foodGrid.height):
+          dist_to_dots.append([])
+          for x2 in range(foodGrid.width):
+            dist_to_dots[y2].append(util.manhattanDistance(next_position,(x2,y2)))
+            if (not next_foodGrid[x2][y2]):
+              dist_to_dots[y2][x2]=0
+        #print "dist_to_dots ",dist_to_dots
+        
+        x_closest=0
+        y_closest=0
+        for y2 in range(foodGrid.height):
+          for x2 in range(foodGrid.width):
+            #print "Compare ",next_foodGrid[x_closest][y_closest],dist_to_dots[y2][x2],dist_to_dots[y_closest][x_closest]
+            if (not next_foodGrid[x_closest][y_closest]):
+                x_closest=x2
+                y_closest=y2
+            if (next_foodGrid[x2][y2]) and (dist_to_dots[y2][x2]<dist_to_dots[y_closest][x_closest]):
+                x_closest=x2
+#                y_closest=y2
+#        #print "closest ",x_closest,y_closest
+#        if (next_foodGrid[x_closest][y_closest]):
+#            result+=dist_to_dots[y_closest][x_closest]
+#            next_position=(x_closest,y_closest)
+#            next_foodGrid[x_closest][y_closest]=False
+#            #print "Move to ",next_position
+#        else:
+#            finished=True;
+#            break
+#      if (finished):
+#        break
+#    return result
     
 
 class ClosestDotSearchAgent(SearchAgent):

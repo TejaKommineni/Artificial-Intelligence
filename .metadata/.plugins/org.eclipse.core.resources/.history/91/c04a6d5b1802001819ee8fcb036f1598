@@ -472,41 +472,18 @@ def foodHeuristic(state, problem):
     """
     position, foodGrid = state
     "*** YOUR CODE HERE ***"
-    H = 0
-    maxDistance = 0
-    # find the farthest distance by Astar search using mazeDistance() function.
-    for y in range(foodGrid.height):
-        for x in range(foodGrid.width):
-            if (foodGrid[x][y] == 1) and (mazeDistance(position,(x,y),problem.startingGameState) > maxDistance):
-                maxDistance = mazeDistance(position,(x,y),problem.startingGameState)
-    H = maxDistance     
-    return H       
+        
     #maxDistance=0
     #for i in foodGrid.asList():
     #    maxDistance=max(maxDistance,util.manhattanDistance(position,i))
     #return maxDistance
     
-    gs = problem.startingGameState
-    foodList = foodGrid.asList()
-    foodCount = len(foodList)
-    max_dis = 0
-    part_max_dis = 0
-
-    for i in range(foodCount):
-        for ii in range(foodCount-i-1):
-            dis = mazeDistance(foodList[i],foodList[ii+1],gs)
-            if dis > max_dis:
-                max_dis = dis
-                furthest1 = foodList[i]
-                furthest2 = foodList[ii+1]
-                part1 = mazeDistance(position,foodList[i],gs)
-                part2 = mazeDistance(position,foodList[ii+1],gs)
-                if part1 > part2:
-                    part_max_dis = part2
-                else:
-                    part_max_dis = part1
-    
-    return max_dis+part_max_dis 
+     result=0
+     for y in range(foodGrid.height):
+         for x in range(foodGrid.width):
+             if (foodGrid[x][y]):
+                 result+=1
+    return result
     
 
 class ClosestDotSearchAgent(SearchAgent):

@@ -116,29 +116,7 @@ def depthFirstSearch(problem):
 
 def breadthFirstSearch(problem):
     """Search the shallowest nodes in the search tree first."""
-    #python pacman.py -l mediumMaze -p SearchAgent -a fn=bfs --frameTime 0
-    #python pacman.py -l bigMaze -p SearchAgent -a fn=bfs -z .5 --frameTime 0
     "*** YOUR CODE HERE ***"
-
-    Frontier = util.Queue()
-    Visited = []
-    Frontier.push( (problem.getStartState(), []) )
-    #print 'Start',problem.getStartState()
-    #Visited.append( problem.getStartState() )
-
-    while Frontier.isEmpty() == 0:
-        state, actions = Frontier.pop()
-
-        for next in problem.getSuccessors(state):
-            n_state = next[0]
-            n_direction = next[1]
-            if n_state not in Visited:
-                if problem.isGoalState(n_state):
-                    #print 'Find Goal'
-                    return actions + [n_direction]
-                Frontier.push( (n_state, actions + [n_direction]) )
-                Visited.append( n_state )
-
     util.raiseNotDefined()
 
 def uniformCostSearch(problem):

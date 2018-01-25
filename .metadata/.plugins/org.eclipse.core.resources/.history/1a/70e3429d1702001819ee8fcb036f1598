@@ -472,41 +472,33 @@ def foodHeuristic(state, problem):
     """
     position, foodGrid = state
     "*** YOUR CODE HERE ***"
-    H = 0
-    maxDistance = 0
-    # find the farthest distance by Astar search using mazeDistance() function.
-    for y in range(foodGrid.height):
-        for x in range(foodGrid.width):
-            if (foodGrid[x][y] == 1) and (mazeDistance(position,(x,y),problem.startingGameState) > maxDistance):
-                maxDistance = mazeDistance(position,(x,y),problem.startingGameState)
-    H = maxDistance     
-    return H       
+        
     #maxDistance=0
     #for i in foodGrid.asList():
     #    maxDistance=max(maxDistance,util.manhattanDistance(position,i))
     #return maxDistance
     
-    gs = problem.startingGameState
-    foodList = foodGrid.asList()
-    foodCount = len(foodList)
-    max_dis = 0
-    part_max_dis = 0
-
-    for i in range(foodCount):
-        for ii in range(foodCount-i-1):
-            dis = mazeDistance(foodList[i],foodList[ii+1],gs)
-            if dis > max_dis:
-                max_dis = dis
-                furthest1 = foodList[i]
-                furthest2 = foodList[ii+1]
-                part1 = mazeDistance(position,foodList[i],gs)
-                part2 = mazeDistance(position,foodList[ii+1],gs)
-                if part1 > part2:
-                    part_max_dis = part2
-                else:
-                    part_max_dis = part1
+    current_pos = position
+    unvisited_foods = foodGrid.asList()
+    total_dist = 0
+    while len(unvisited_foods) != 0:
+        idx, dist = findClosestDist(current_pos, unvisited_foods)
+        total_dist += dist
+        current_pos = unvisited_foods[idx]
+        unvisited_foods.remove(unvisited_foods[idx])
     
-    return max_dis+part_max_dis 
+    return total_dist
+    
+    def findClosestDist(current_pos, corners):
+      idx = -1
+      min_dist = None
+      for i in range(len(corners)):
+        dist = util.manhattanDistance(current_pos, corners[i])
+        if min_dist == None or min_dist > dist:
+          min_dist = dist
+          idx = i
+    
+      return idx, min_dist
     
 
 class ClosestDotSearchAgent(SearchAgent):
