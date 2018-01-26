@@ -119,7 +119,7 @@ def breadthFirstSearch(problem):
     #python pacman.py -l mediumMaze -p SearchAgent -a fn=bfs --frameTime 0
     #python pacman.py -l bigMaze -p SearchAgent -a fn=bfs -z .5 --frameTime 0
     "*** YOUR CODE HERE ***"
-    q = util.Queue()
+        q = util.Queue()
     root = (problem.getStartState(), None, None)
     q.push(root)
     #Keep track of visited nodes

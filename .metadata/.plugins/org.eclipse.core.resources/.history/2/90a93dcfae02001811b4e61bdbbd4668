@@ -119,38 +119,7 @@ def breadthFirstSearch(problem):
     #python pacman.py -l mediumMaze -p SearchAgent -a fn=bfs --frameTime 0
     #python pacman.py -l bigMaze -p SearchAgent -a fn=bfs -z .5 --frameTime 0
     "*** YOUR CODE HERE ***"
-    q = util.Queue()
-    root = (problem.getStartState(), None, None)
-    q.push(root)
-    #Keep track of visited nodes
-    visited = util.Counter()
-    #Dictionary that gives parent, given its children.
-    parentDict = {root: None}
-    #Did we find goal?
-    bFound = False 
-    while not q.isEmpty():
-        top = q.pop()
-        topStateCord = top[0]
-        if visited[topStateCord] != 0:
-            continue
-        #mark it as visited
-        visited[topStateCord] += 1
-        if problem.isGoalState(topStateCord):
-            bFound = True
-            break
-        #Insert all its unvisited successors in the q
-        successors = problem.getSuccessors(topStateCord)
-        for successor in successors:
-            if visited[successor[0]] == 0:
-                q.push(successor)
-                parentDict[successor] = top
-    path = []
-    if bFound:
-        #topState is the Goal.
-        while top != root:
-            path.insert(0, top[1])
-            top = parentDict[top]
-    return path 
+
     
 
     util.raiseNotDefined()
