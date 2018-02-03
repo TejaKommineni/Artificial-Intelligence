@@ -360,25 +360,17 @@ def cornersHeuristic(state, problem):
     corners = problem.corners # These are the corner coordinates
     walls = problem.walls # These are the walls of the maze, as a Grid (game.py)
     "*** YOUR CODE HERE ***"
-    pacmanPosition=state[0]
-    newCorners=state[1]
-    totalDistance=0
-    while len(newCorners)>0:
-        distances=[util.manhattanDistance(pacmanPosition,corner) for corner in newCorners]
-        minDistance=min(distances)
-        totalDistance+=minDistance
-        bestIndices = [index for index in range(len(distances)) if distances[index] == minDistance]
-        chosenIndex = bestIndices[0] # Pick first among the best in case there is a tie.
-        pacmanPosition=newCorners[chosenIndex]
-        newCorners=[newCorners[index] for index in range(len(newCorners)) if index!=chosenIndex] 
-    return totalDistance #- maxDistance(state[1])
-
-def maxDistance(points):
-        maxD=0
-        for i in range(len(points)):
-            for j in range(i,len(points)):
-                max(maxD, util.manhattanDistance(points[i],points[j]))
-        return maxD
+    pacman_location = state[0]
+    new_corners = state[1]
+    total_distance=0
+    while len(new_corners)>0:
+        distances=[util.manhattanDistance(pacman_location,corner) for corner in new_corners]
+        min_distance=min(distances)
+        min_indices = [i for i in range(len(distances)) if distances[i] == min_distance]
+        pacman_location = new_corners[min_indices[0]]
+        new_corners = [new_corners[i] for i in range(len(new_corners)) if i!=min_indices[0]]        
+        total_distance+=min_distance
+    return total_distance
   
 class AStarCornersAgent(SearchAgent):
     "A SearchAgent for FoodSearchProblem using A* and your foodHeuristic"
@@ -472,42 +464,19 @@ def foodHeuristic(state, problem):
     """
     position, foodGrid = state
     "*** YOUR CODE HERE ***"
-    H = 0
-    maxDistance = 0
+    heuristic = 0
     # find the farthest distance by Astar search using mazeDistance() function.
     for y in range(foodGrid.height):
         for x in range(foodGrid.width):            
-            if (foodGrid[x][y] == 1) and (mazeDistance(position,(x,y),problem.startingGameState) > maxDistance):
-                maxDistance = mazeDistance(position,(x,y),problem.startingGameState)
-    H = maxDistance     
-    return H       
+            if (foodGrid[x][y] == 1):
+                dist = mazeDistance(position,(x,y),problem.startingGameState) 
+                if (dist > heuristic):
+                    heuristic = dist   
+    return heuristic       
     #maxDistance=0
     #for i in foodGrid.asList():
     #    maxDistance=max(maxDistance,util.manhattanDistance(position,i))
-    #return maxDistance
-    
-    gs = problem.startingGameState
-    foodList = foodGrid.asList()
-    foodCount = len(foodList)
-    max_dis = 0
-    part_max_dis = 0
-
-    for i in range(foodCount):
-        for ii in range(foodCount-i-1):
-            dis = mazeDistance(foodList[i],foodList[ii+1],gs)
-            if dis > max_dis:
-                max_dis = dis
-                furthest1 = foodList[i]
-                furthest2 = foodList[ii+1]
-                part1 = mazeDistance(position,foodList[i],gs)
-                part2 = mazeDistance(position,foodList[ii+1],gs)
-                if part1 > part2:
-                    part_max_dis = part2
-                else:
-                    part_max_dis = part1
-    
-    return max_dis+part_max_dis 
-    
+    #return maxDistance    
 
 class ClosestDotSearchAgent(SearchAgent):
     "Search for all food using a sequence of searches"
@@ -538,7 +507,8 @@ class ClosestDotSearchAgent(SearchAgent):
         problem = AnyFoodSearchProblem(gameState)
         
         "*** YOUR CODE HERE ***"
-        return search.astar(problem)
+        return search.aStarSearch(problem)
+        #return search.breadthFirstSearch(problem)
         util.raiseNotDefined()
 
 class AnyFoodSearchProblem(PositionSearchProblem):

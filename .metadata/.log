@@ -1307,3 +1307,38 @@ org.python.pydev.core.structure.CompletionRecursionException: Stopping analysis:
 	at com.python.pydev.analysis.builder.AbstractAnalysisBuilderRunnable.run(AbstractAnalysisBuilderRunnable.java:162)
 	at org.python.pydev.core.concurrency.RunnableAsJobsPoolThread$1.run(RunnableAsJobsPoolThread.java:140)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.python.pydev.shared_core 4 4 2018-01-26 08:52:34.332
+!MESSAGE Unable to read contents from: T:\Workspaces\Artificial Intelligence\.metadata\.plugins\org.python.pydev\v1_258tvcdekrk5tmtf5h0ez044z\shell\__b_b71834d8fiuvjsz54r5ba93nq.top
+!STACK 0
+java.io.EOFException
+	at java.util.zip.GZIPInputStream.readUByte(Unknown Source)
+	at java.util.zip.GZIPInputStream.readUShort(Unknown Source)
+	at java.util.zip.GZIPInputStream.readHeader(Unknown Source)
+	at java.util.zip.GZIPInputStream.<init>(Unknown Source)
+	at java.util.zip.GZIPInputStream.<init>(Unknown Source)
+	at org.python.pydev.editor.codecompletion.revisited.modules.CompiledModule.getCached(CompiledModule.java:305)
+	at org.python.pydev.editor.codecompletion.revisited.modules.CompiledModule.<init>(CompiledModule.java:157)
+	at org.python.pydev.editor.codecompletion.revisited.SystemModulesManager.getBuiltinModule(SystemModulesManager.java:348)
+	at org.python.pydev.editor.codecompletion.revisited.SystemModulesManager.getBuiltinModule(SystemModulesManager.java:1)
+	at org.python.pydev.editor.codecompletion.revisited.ProjectModulesManager.getModuleAndRelatedModulesManager(ProjectModulesManager.java:201)
+	at org.python.pydev.editor.codecompletion.revisited.ProjectModulesManager.getModule(ProjectModulesManager.java:180)
+	at org.python.pydev.editor.codecompletion.revisited.AbstractASTManager.getModule(AbstractASTManager.java:569)
+	at org.python.pydev.editor.codecompletion.revisited.modules.SourceModule.findGlobalTokDef(SourceModule.java:1165)
+	at org.python.pydev.editor.codecompletion.revisited.modules.SourceModule.findDefinitionsFromModAndTok(SourceModule.java:1054)
+	at org.python.pydev.editor.codecompletion.revisited.modules.SourceModule.findDefinition(SourceModule.java:1036)
+	at org.python.pydev.editor.codecompletion.revisited.modules.SourceModule.findDefinition(SourceModule.java:702)
+	at org.python.pydev.editor.codecompletion.revisited.modules.SourceModule.findDefinition(SourceModule.java:1)
+	at org.python.pydev.editor.refactoring.PyRefactoringFindDefinition.findActualDefinition(PyRefactoringFindDefinition.java:185)
+	at org.python.pydev.editor.refactoring.PyRefactoringFindDefinition.findActualDefinition(PyRefactoringFindDefinition.java:84)
+	at org.python.pydev.editor.hover.PyDocstringTextHover.getDocstringHover(PyDocstringTextHover.java:100)
+	at org.python.pydev.editor.hover.PyDocstringTextHover.getHoverInfo(PyDocstringTextHover.java:58)
+	at org.python.pydev.editor.hover.PydevCombiningHover.getHoverInfo(PydevCombiningHover.java:141)
+	at org.python.pydev.editor.hover.PyEditorTextHoverProxy.getHoverInfo(PyEditorTextHoverProxy.java:59)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.jface.text 2 0 2018-01-26 08:54:08.658
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2018-01-26 08:54:08.658
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
