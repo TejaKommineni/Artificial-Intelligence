@@ -1392,3 +1392,180 @@ java.lang.RuntimeException: Attempt: 3 of 5 failed, trying again...(socket conne
 
 !ENTRY org.python.pydev.shared_core 4 4 2018-02-08 16:28:34.213
 !MESSAGE Info: Rebuilding internal caches: T:\Workspaces\Artificial Intelligence\.metadata\.plugins\org.eclipse.core.resources\.projects\Project2\com.python.pydev.analysis\AdditionalProjectInterpreterInfo.pydevinfo (Expected error to be provided and got no error!)
+!SESSION 2018-02-09 09:58:39.185 -----------------------------------------------
+eclipse.buildId=4.7.0.I20170612-0950
+java.version=1.8.0_141
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.python.pydev.shared_core 4 4 2018-02-09 09:59:04.620
+!MESSAGE The python client still hasn't connected back to the eclipse java vm (will retry...)
+!STACK 0
+java.lang.RuntimeException: The python client still hasn't connected back to the eclipse java vm (will retry...)
+	at org.python.pydev.core.log.Log.log(Log.java:54)
+	at org.python.pydev.editor.codecompletion.shell.AbstractShell.startIt(AbstractShell.java:334)
+	at org.python.pydev.editor.codecompletion.shell.ShellsContainer.getServerShell(ShellsContainer.java:232)
+	at org.python.pydev.editor.codecompletion.shell.ShellsContainer.getServerShell(ShellsContainer.java:165)
+	at org.python.pydev.editor.codecompletion.shell.AbstractShell.getServerShell(AbstractShell.java:222)
+	at org.python.pydev.editor.PyEdit$2.run(PyEdit.java:560)
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-02-09 09:59:07.717
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\tejak'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.python.pydev.shared_core 4 4 2018-02-09 09:59:10.152
+!MESSAGE Attempt: 2 of 5 failed, trying again...(socket connected: still null)
+!STACK 0
+java.lang.RuntimeException: Attempt: 2 of 5 failed, trying again...(socket connected: still null)
+	at org.python.pydev.core.log.Log.log(Log.java:54)
+	at org.python.pydev.editor.codecompletion.shell.AbstractShell.startIt(AbstractShell.java:353)
+	at org.python.pydev.editor.codecompletion.shell.ShellsContainer.getServerShell(ShellsContainer.java:232)
+	at org.python.pydev.editor.codecompletion.shell.ShellsContainer.getServerShell(ShellsContainer.java:165)
+	at org.python.pydev.editor.codecompletion.shell.AbstractShell.getServerShell(AbstractShell.java:222)
+	at org.python.pydev.editor.PyEdit$2.run(PyEdit.java:560)
+
+!ENTRY org.python.pydev.shared_core 4 4 2018-02-09 09:59:16.238
+!MESSAGE Attempt: 3 of 5 failed, trying again...(socket connected: still null)
+!STACK 0
+java.lang.RuntimeException: Attempt: 3 of 5 failed, trying again...(socket connected: still null)
+	at org.python.pydev.core.log.Log.log(Log.java:54)
+	at org.python.pydev.editor.codecompletion.shell.AbstractShell.startIt(AbstractShell.java:353)
+	at org.python.pydev.editor.codecompletion.shell.ShellsContainer.getServerShell(ShellsContainer.java:232)
+	at org.python.pydev.editor.codecompletion.shell.ShellsContainer.getServerShell(ShellsContainer.java:165)
+	at org.python.pydev.editor.codecompletion.shell.AbstractShell.getServerShell(AbstractShell.java:222)
+	at org.python.pydev.editor.PyEdit$2.run(PyEdit.java:560)
+
+!ENTRY org.python.pydev.shared_core 4 4 2018-02-09 09:59:21.209
+!MESSAGE Error checking for valid tokens (imports) for pacman
+!STACK 0
+org.python.pydev.core.structure.CompletionRecursionException: Stopping analysis: completion took too much time to complete. Max set to: 5000 millis. Current: 16535 millis. Note: this value may be changed in the code-completion preferences.
+	at org.python.pydev.editor.codecompletion.revisited.CompletionState.checkMaxTimeForCompletion(CompletionState.java:277)
+	at org.python.pydev.editor.codecompletion.revisited.AbstractASTManager.getAssignCompletions(AbstractASTManager.java:1624)
+	at org.python.pydev.editor.codecompletion.revisited.AbstractASTManager.internalGenerateGetCompletionsForModule(AbstractASTManager.java:919)
+	at org.python.pydev.editor.codecompletion.revisited.AbstractASTManager.getCompletionsForModule(AbstractASTManager.java:681)
+	at org.python.pydev.editor.codecompletion.revisited.AbstractASTManager.getCompletionsForModule(AbstractASTManager.java:650)
+	at org.python.pydev.editor.codecompletion.revisited.AbstractASTManager.getCompletionsForModule(AbstractASTManager.java:641)
+	at org.python.pydev.editor.codecompletion.revisited.AbstractASTManager.getCompletionsForModule(AbstractASTManager.java:631)
+	at org.python.pydev.editor.codecompletion.revisited.AbstractASTManager.internalGenerateGetCompletionsForModule(AbstractASTManager.java:864)
+	at org.python.pydev.editor.codecompletion.revisited.AbstractASTManager.getCompletionsForModule(AbstractASTManager.java:681)
+	at org.python.pydev.editor.codecompletion.revisited.AbstractASTManager.getCompletionsForModule(AbstractASTManager.java:650)
+	at org.python.pydev.editor.codecompletion.revisited.AbstractASTManager.getCompletionsForModule(AbstractASTManager.java:641)
+	at org.python.pydev.editor.codecompletion.revisited.AbstractASTManager.getCompletionsForModule(AbstractASTManager.java:631)
+	at org.python.pydev.editor.codecompletion.revisited.AbstractASTManager.internalGenerateGetCompletionsForModule(AbstractASTManager.java:846)
+	at org.python.pydev.editor.codecompletion.revisited.AbstractASTManager.getCompletionsForModule(AbstractASTManager.java:681)
+	at org.python.pydev.editor.codecompletion.revisited.AbstractASTManager.getCompletionsForModule(AbstractASTManager.java:650)
+	at org.python.pydev.editor.codecompletion.revisited.AbstractASTManager.getCompletionsForModule(AbstractASTManager.java:641)
+	at org.python.pydev.editor.codecompletion.revisited.modules.AbstractModule.internalGenerateCachedTokens(AbstractModule.java:217)
+	at org.python.pydev.editor.codecompletion.revisited.modules.AbstractModule.getCachedCompletions(AbstractModule.java:188)
+	at org.python.pydev.editor.codecompletion.revisited.modules.AbstractModule.isInGlobalTokens(AbstractModule.java:140)
+	at com.python.pydev.analysis.scopeanalysis.AbstractScopeAnalyzerVisitor.markRead(AbstractScopeAnalyzerVisitor.java:1203)
+	at com.python.pydev.analysis.scopeanalysis.AbstractScopeAnalyzerVisitor.visitAttribute(AbstractScopeAnalyzerVisitor.java:719)
+	at org.python.pydev.parser.jython.ast.Attribute.accept(Attribute.java:87)
+	at com.python.pydev.analysis.scopeanalysis.AbstractScopeAnalyzerVisitor.onVisitCallFunc(AbstractScopeAnalyzerVisitor.java:228)
+	at com.python.pydev.analysis.visitors.OccurrencesVisitor.onVisitCallFunc(OccurrencesVisitor.java:549)
+	at com.python.pydev.analysis.scopeanalysis.AbstractScopeAnalyzerVisitor.visitCall(AbstractScopeAnalyzerVisitor.java:200)
+	at com.python.pydev.analysis.visitors.OccurrencesVisitor.visitCall(OccurrencesVisitor.java:358)
+	at org.python.pydev.parser.jython.ast.Call.accept(Call.java:123)
+	at org.python.pydev.parser.jython.ast.Return.traverse(Return.java:77)
+	at com.python.pydev.analysis.scopeanalysis.AbstractScopeAnalyzerVisitor.traverse(AbstractScopeAnalyzerVisitor.java:194)
+	at com.python.pydev.analysis.visitors.OccurrencesVisitor.traverse(OccurrencesVisitor.java:395)
+	at org.python.pydev.parser.jython.ast.VisitorBase.visitReturn(VisitorBase.java:58)
+	at com.python.pydev.analysis.visitors.OccurrencesVisitor.visitReturn(OccurrencesVisitor.java:366)
+	at org.python.pydev.parser.jython.ast.Return.accept(Return.java:71)
+	at com.python.pydev.analysis.scopeanalysis.AbstractScopeAnalyzerVisitor.visitFunctionDef(AbstractScopeAnalyzerVisitor.java:429)
+	at org.python.pydev.parser.jython.ast.FunctionDef.accept(FunctionDef.java:131)
+	at com.python.pydev.analysis.scopeanalysis.AbstractScopeAnalyzerVisitor.visitClassDef(AbstractScopeAnalyzerVisitor.java:263)
+	at org.python.pydev.parser.jython.ast.ClassDef.accept(ClassDef.java:157)
+	at org.python.pydev.parser.jython.ast.Module.traverse(Module.java:87)
+	at com.python.pydev.analysis.scopeanalysis.AbstractScopeAnalyzerVisitor.traverse(AbstractScopeAnalyzerVisitor.java:194)
+	at com.python.pydev.analysis.visitors.OccurrencesVisitor.traverse(OccurrencesVisitor.java:395)
+	at org.python.pydev.parser.jython.ast.VisitorBase.visitModule(VisitorBase.java:10)
+	at org.python.pydev.parser.jython.ast.Module.accept(Module.java:79)
+	at com.python.pydev.analysis.OccurrencesAnalyzer.analyzeDocument(OccurrencesAnalyzer.java:56)
+	at com.python.pydev.analysis.builder.AnalysisBuilderRunnable.doAnalysis(AnalysisBuilderRunnable.java:271)
+	at com.python.pydev.analysis.builder.AbstractAnalysisBuilderRunnable.run(AbstractAnalysisBuilderRunnable.java:162)
+	at org.python.pydev.core.concurrency.RunnableAsJobsPoolThread$1.run(RunnableAsJobsPoolThread.java:140)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.python.pydev.shared_core 1 1 2018-02-09 10:39:29.065
+!MESSAGE No existing console history at: T:\Workspaces\Artificial Intelligence\.metadata\.plugins\org.python.pydev.shared_interactive_console\history.py
+!STACK 0
+java.io.FileNotFoundException: T:\Workspaces\Artificial Intelligence\.metadata\.plugins\org.python.pydev.shared_interactive_console\history.py (The system cannot find the file specified)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(Unknown Source)
+	at java.io.FileInputStream.<init>(Unknown Source)
+	at java.io.FileReader.<init>(Unknown Source)
+	at org.python.pydev.shared_interactive_console.console.ScriptConsoleGlobalHistory.load(ScriptConsoleGlobalHistory.java:96)
+	at org.python.pydev.shared_interactive_console.console.ScriptConsoleGlobalHistory.<init>(ScriptConsoleGlobalHistory.java:45)
+	at org.python.pydev.shared_interactive_console.console.ScriptConsoleGlobalHistory.<clinit>(ScriptConsoleGlobalHistory.java:37)
+	at org.python.pydev.shared_interactive_console.console.ScriptConsoleHistory.<init>(ScriptConsoleHistory.java:56)
+	at org.python.pydev.shared_interactive_console.console.ui.ScriptConsole.<init>(ScriptConsole.java:204)
+	at org.python.pydev.debug.newconsole.PydevConsole.<init>(PydevConsole.java:84)
+	at org.python.pydev.debug.newconsole.PydevDebugConsole.<init>(PydevDebugConsole.java:29)
+	at org.python.pydev.debug.newconsole.PydevConsoleFactory.createDebugConsole(PydevConsoleFactory.java:284)
+	at org.python.pydev.debug.newconsole.PydevConsoleFactory.createDebugConsole(PydevConsoleFactory.java:259)
+	at org.python.pydev.debug.console.PromptOverlay.<init>(PromptOverlay.java:77)
+	at org.python.pydev.debug.console.PromptOverlayConsolePageParticipant.init(PromptOverlayConsolePageParticipant.java:48)
+	at org.eclipse.ui.internal.console.ConsoleView$3.run(ConsoleView.java:326)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.console.ConsoleView.doCreatePage(ConsoleView.java:323)
+	at org.eclipse.ui.part.PageBookView.createPage(PageBookView.java:385)
+	at org.eclipse.ui.part.PageBookView.partActivated(PageBookView.java:728)
+	at org.eclipse.ui.internal.console.ConsoleView$4.run(ConsoleView.java:395)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1044)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+
+!ENTRY org.eclipse.jface 2 0 2018-02-09 10:40:01.757
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-02-09 10:40:01.757
+!MESSAGE A conflict occurred for CTRL+SHIFT+3:
+Binding(CTRL+SHIFT+3,
+	ParameterizedCommand(Command(org.eclipse.wst.jsdt.debug.ui.script.opensource,Open Source,
+		Shows the JavaScript source for the selected script element,
+		Category(org.eclipse.wst.jsdt.debug.ui.category,JavaScript Debug,Tooling for debugging JavaScript,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@593707c6,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.debugging,,,system)
+Binding(CTRL+SHIFT+3,
+	ParameterizedCommand(Command(org.python.pydev.editor.actions.uncomment,Python Uncomment,
+		Uncomments a python line (Removes # from the beggining of the line),
+		Category(org.python.pydev.ui.category.source,PyDev - Editor,PyDev editor category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@24a89473,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.python.pydev.ui.editor.scope,,,system)
+
+!ENTRY org.eclipse.jface.text 2 0 2018-02-09 10:51:45.198
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2018-02-09 10:51:45.198
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
