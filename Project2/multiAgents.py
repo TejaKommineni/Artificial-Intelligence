@@ -43,11 +43,16 @@ class ReflexAgent(Agent):
 
         # Choose one of the best actions
         scores = [self.evaluationFunction(gameState, action) for action in legalMoves]
+        print "legal moves", legalMoves
+        print "scores", scores
         bestScore = max(scores)
         bestIndices = [index for index in range(len(scores)) if scores[index] == bestScore]
         chosenIndex = random.choice(bestIndices) # Pick randomly among the best
 
         "Add more of your code here if you want to"
+        ##FIXME: Pacman stops remove this dirty fix to avoid pacman stops issue!
+        #if chosenIndex == 1: #Index of Stop action
+        #    chosenIndex = random.choice(range(len(legalMoves)))
 
         return legalMoves[chosenIndex]
 
@@ -68,27 +73,50 @@ class ReflexAgent(Agent):
         """
         # Useful information you can extract from a GameState (pacman.py)
         successorGameState = currentGameState.generatePacmanSuccessor(action)
-        newPos = list(successorGameState.getPacmanPosition())
+        newPos = successorGameState.getPacmanPosition()
         newFood = successorGameState.getFood()
         newGhostStates = successorGameState.getGhostStates()
         newScaredTimes = [ghostState.scaredTimer for ghostState in newGhostStates]
 
-        distance = []
-        foodList = currentGameState.getFood().asList()
-    
-        if action == 'Stop':
-            return -float("inf")
-    
-        for ghostState in newGhostStates:
-            if ghostState.getPosition() == tuple(newPos) and ghostState.scaredTimer is 0:
-                return -float("inf") 
-    
-        for food in foodList:
-            x = -1*abs(food[0] - newPos[0])
-            y = -1*abs(food[1] - newPos[1])
-            distance.append(x+y) 
-    
-        return max(distance)
+        "*** YOUR CODE HERE ***"
+        def euclidean_dist(pos1, pos2):
+            return ((pos1[0] - pos2[0]) ** 2 + (pos1[1] - pos2[1]) ** 2) ** 0.5
+
+
+        next_ghost = 0
+        for ghostIndex in range(len(newGhostStates)):
+            ghostState = newGhostStates[ghostIndex]
+            ghostPosition = ghostState.configuration.getPosition()
+            if newPos == ghostPosition:
+                next_ghost += 1
+            print "ghost ", ghostIndex, ": Position - ", ghostPosition
+        if next_ghost:
+            return 0
+        score = 1.0
+        #print "newGhostStates:", newGhostStates
+        #print "newScaredTimes:", newScaredTimes
+        #print "Pacman Position:", successorGameState.getPacmanPosition()
+        #print "action:", action
+        newPos = [float(newPos[i]) for i in range(len(newPos))]
+        #print "newPos:", newPos
+        #TODO: why agent stops? DONE:
+        dist = float('inf')
+        for food in newFood.asList():
+            dist = min(dist, euclidean_dist(food, newPos))
+        foodCount = newFood.count()
+        ghost_dist = float('inf')
+        for ghostPos in successorGameState.getGhostPositions():
+            ghost_dist = min(ghost_dist, manhattanDistance(ghostPos, newPos))
+
+        #print "dist to food:", dist
+        #print "score:", successorGameState.getScore()
+        if ghost_dist < 4.0:
+            score = (ghost_dist ** 5) + (100.0 / float(dist)) ** 2
+        else:
+            score = (1.0/float(dist)) ** 2 + (10000.0/float(foodCount + 1)) ** 2
+
+        #score = (ghost_dist ** 10)/10.0 + (100.0 / float(dist))
+        return score
 
 def scoreEvaluationFunction(currentGameState):
     """
@@ -311,6 +339,64 @@ class ExpectimaxAgent(MultiAgentSearchAgent):
             else:
                 return sum(successors)/len(successors)
 
+class dp_calculator():
+    def __init__(self):
+        self.test = True
+    def shortestMatrix(self, matrix, walls):
+        """
+        :type matrix: List[List[int]]
+        :rtype: List[List[int]]
+        """
+        ans = [[float('inf') for j in range(matrix.height)] for i in range(matrix.width)]
+        #print ans
+        
+        #base cases:
+        prev = float('inf')
+        for j in range(matrix.height - 1, -1, -1):
+            #if matrix[-1][j] != False:
+            if matrix[-1][j] != False:
+                if not walls[-1][j]:
+                    ans[-1][j] = min(ans[-1][j], prev + 1)
+            else:
+                ans[-1][j] = 0
+            prev = ans[-1][j]
+        prev = float('inf')
+        for i in range(matrix.width - 1, -1, -1):
+            if matrix[i][-1] != False:
+                if not walls[i][-1]:
+                    ans[i][-1] = min(ans[i][-1], prev + 1)
+            else:
+                ans[i][-1] = 0
+            prev = ans[i][-1]
+        for i in range(matrix.width - 2, -1, -1):
+            for j in range(matrix.height - 2, -1, -1):
+                if matrix[i][j] == False:
+                    ans[i][j] = 0
+                else:
+                    if not walls[i][j]:
+                        ans[i][j] = min(ans[i][j], ans[i][j + 1] + 1, ans[i + 1][j] + 1)
+        #base case 2
+        prev = float('inf')
+        for j in range(matrix.height):
+            if matrix[0][j] != False:
+                if not walls[0][j]:
+                    ans[0][j] = min(ans[0][j], prev + 1)
+            else:
+                ans[0][j] = 0
+            prev = ans[0][j]
+        prev = float('inf')
+        for i in range(matrix.width):
+            if matrix[i][0] != False:
+                if not walls[i][0]:
+                    ans[i][0] = min(ans[i][0], prev + 1)
+            else:
+                ans[i][0] = 0
+            prev = ans[i][0]
+        for i in range(1, matrix.width, 1):
+            for j in range(1, matrix.height, 1):
+                if not walls[i][j]:
+                    ans[i][j] = min(ans[i][j], ans[i][j - 1] + 1, ans[i - 1][j] + 1)
+        return ans
 
 def betterEvaluationFunction(currentGameState):
     """
@@ -320,8 +406,62 @@ def betterEvaluationFunction(currentGameState):
       DESCRIPTION: <write something here so we know what you did>
     """
     "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+    #successorGameState = currentGameState.generatePacmanSuccessor(action)
+    newPos = currentGameState.getPacmanPosition()
+    newFood = currentGameState.getFood()
+    newGhostStates = currentGameState.getGhostStates()
+    newScaredTimes = [ghostState.scaredTimer for ghostState in newGhostStates]
+    newWalls = currentGameState.getWalls()
+    capsules = currentGameState.getCapsules()
+    #print "scared times: ", newScaredTimes
+    
+    def euclidean_dist(pos1, pos2):
+        return ((pos1[0] - pos2[0]) ** 2 + (pos1[1] - pos2[1]) ** 2) ** 0.5
+
+
+    next_ghost = 0
+    for ghostIndex in range(len(newGhostStates)):
+        ghostState = newGhostStates[ghostIndex]
+        ghostPosition = ghostState.configuration.getPosition()
+        if newPos == ghostPosition:
+            next_ghost += 1
+        print "ghost ", ghostIndex, ": Position - ", ghostPosition
+    #if sum(newScaredTimes) != 0 and next_ghost:
+        #return 10000000000000
+    if next_ghost:
+        return 0
+    score = 1.0
+    #print "newGhostStates:", newGhostStates
+    #print "newScaredTimes:", newScaredTimes
+    #print "Pacman Position:", successorGameState.getPacmanPosition()
+    #print "action:", action
+    newPos = [float(newPos[i]) for i in range(len(newPos))]
+    #print "newPos:", newPos
+    #TODO: why agent stops? DONE:
+    dist = float('inf')
+    for food in newFood.asList():
+        dist = min(dist, euclidean_dist(food, newPos))
+    dist_capsules = float('inf')
+    for cap in capsules:
+        dist_capsules = min(dist_capsules, euclidean_dist(cap, newPos))
+    ###############
+    dp = dp_calculator()
+    #dist_mat = dp.shortestMatrix(newFood, newWalls)
+    #dist = dist_mat[int(newPos[0] + 0.5)][int(newPos[1] + 0.5)] + 1
+    ###############
+    foodCount = newFood.count()
+    ghost_dist = float('inf')
+    for ghostPos in currentGameState.getGhostPositions():
+        ghost_dist = min(ghost_dist, manhattanDistance(ghostPos, newPos))
+
+    #print "dist to food:", dist
+    if ghost_dist < 4.0 and sum(newScaredTimes) == 0:
+        score = (ghost_dist ** 5) + (100.0 / float(dist)) ** 2
+    else:
+        score = (1.0/float(dist)) ** 2 + (10000.0/float(foodCount + 1)) ** 2 + 10000.0/(len(capsules) + 1) ** 4
+
+    #score = (ghost_dist ** 10)/10.0 + (100.0 / float(dist))
+    return score
 
 # Abbreviation
 better = betterEvaluationFunction
-
