@@ -6,12 +6,16 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="mf" key="selection"/>
+		<item value="Time" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="time"/>
+			<item value="timeout"/>
+			<item value="isPacm"/>
+			<item value="isTerminal"/>
 			<item value="mf"/>
 			<item value="multiagentt"/>
 			<item value="multiagent"/>
@@ -23,10 +27,6 @@
 			<item value="manhattan"/>
 			<item value="corners"/>
 			<item value="PositionSearchProblem"/>
-			<item value="foodsearchproblem"/>
-			<item value="food"/>
-			<item value="getStartState"/>
-			<item value="findPathToClosestDot"/>
 		</list>
 		<list key="replacehistory">
 		</list>
