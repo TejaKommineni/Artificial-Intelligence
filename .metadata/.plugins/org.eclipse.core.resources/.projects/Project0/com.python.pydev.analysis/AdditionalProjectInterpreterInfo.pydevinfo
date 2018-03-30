@@ -4,9 +4,9 @@ T:\Workspaces\Artificial Intelligence\.metadata\.plugins\org.eclipse.core.resour
 testParser|1516298209251930000|T:\Workspaces\Artificial Intelligence\Project0\testParser.py
 textDisplay|1516298209254940000|T:\Workspaces\Artificial Intelligence\Project0\textDisplay.py
 shop|1516298209241792000|T:\Workspaces\Artificial Intelligence\Project0\shop.py
+buyLotsOfFruit|1516299876005268000|T:\Workspaces\Artificial Intelligence\Project0\buyLotsOfFruit.py
 grading|1516298209237839000|T:\Workspaces\Artificial Intelligence\Project0\grading.py
 town|1516298209257280000|T:\Workspaces\Artificial Intelligence\Project0\town.py
-buyLotsOfFruit|1516299876005268000|T:\Workspaces\Artificial Intelligence\Project0\buyLotsOfFruit.py
 autograder|1516298668043549000|T:\Workspaces\Artificial Intelligence\Project0\autograder.py
 projectParams|1516298209239788000|T:\Workspaces\Artificial Intelligence\Project0\projectParams.py
 submission_autograder|1516298209247810000|T:\Workspaces\Artificial Intelligence\Project0\submission_autograder.py
@@ -78,7 +78,7 @@ addition|1516298520095437000|T:\Workspaces\Artificial Intelligence\Project0\addi
 65
 _mu|1|_MUTED!11@
 _or|2|_ORIGINAL_STDOUT!11@_ORIGINAL_STDERR!11@
-add|6|addExceptionMessage!18@addPoints!18@addMessage!18@addErrorHints!18@add!26@addMessageToEmail!18@
+add|6|addExceptionMessage!18@addErrorHints!18@addPoints!18@addMessage!18@add!26@addMessageToEmail!18@
 arr|1|arrayInvert!10@
 ass|2|assignZeroCredit!18@assignFullCredit!18@
 bon|1|BONUS_PIC!35@
@@ -88,7 +88,7 @@ cod|1|codePaths!51@
 con|1|confirmGenerate!50@
 cou|2|Counter!9@Counter!17@
 ded|1|deductPoints!18@
-dir|5|dir2!59@dir1!59@dir1!67@dir2!67@dir3!67@
+dir|5|dir1!59@dir2!67@dir2!59@dir1!67@dir3!67@
 dis|2|DISPLAY_MOVES!75@distances!67@
 dra|1|DRAW_EVERY!75@
 emi|1|emitTestDict!82@
@@ -98,8 +98,8 @@ ext|1|ExtraCreditPassAllTestsQuestion!97@
 fai|1|fail!18@
 fix|1|FixedRandom!9@
 fli|1|flipCoin!10@
-fru|3|fruitTown!67@fruitPrices!43@FruitShop!105@
-get|6|getAllSubsets!66@getTestSubdirs!50@getDepends!50@getDisplay!50@getAllPermutations!66@getProbability!10@
+fru|3|fruitPrices!43@fruitTown!67@FruitShop!105@
+get|6|getAllSubsets!66@getDepends!50@getDisplay!50@getAllPermutations!66@getTestSubdirs!50@getProbability!10@
 gra|1|Grades!17@
 hac|1|HackedPartialCreditQuestion!97@
 loa|2|loadModuleString!50@loadModuleFile!50@
@@ -120,8 +120,8 @@ par|1|PartialCreditQuestion!97@
 pas|1|PassAllTestsQuestion!97@
 pau|1|pause!10@
 pre|1|prependToAll!66@
-pri|3|printTest!50@PriorityQueueWithFunction!9@PriorityQueue!9@
-pro|4|produceOutput!18@PROJECT_NAME!35@produceGradeScopeOutput!18@PROJECT_TEST_CLASSES!35@
+pri|3|PriorityQueueWithFunction!9@PriorityQueue!9@printTest!50@
+pro|4|PROJECT_NAME!35@produceGradeScopeOutput!18@produceOutput!18@PROJECT_TEST_CLASSES!35@
 q6p|1|Q6PartialCreditQuestion!97@
 que|2|Queue!9@Question!97@
 qui|1|QUIET!75@
@@ -150,7 +150,7 @@ __g|2|__getitem__!15&10@__getitem__!15&18@
 __i|15|__init__!17&82@__init__!18&74@__init__!19&90@__init__!20&18@__init__!21&98@__init__!22&98@__init__!23&98@__init__!24&114@__init__!25&10@__init__!26&10@__init__!27&10@__init__!28&10@__init__!29&10@__init__!16&10@__init__!30&106@
 __m|1|__mul__!15&10@
 __r|2|__repr__!30&106@__radd__!15&10@
-__s|3|__str__!30&106@__str__!23&98@__sub__!15&10@
+__s|3|__str__!23&98@__sub__!15&10@__str__!30&106@
 add|3|addPrereq!20&18@addTestCase!21&98@addMessage!23&98@
 age|2|agentCounter!31&75@agentCounter!32&75@
 all|1|allFruitsCarriedAtShops!24&114@
@@ -185,7 +185,7 @@ mut|1|mute!35&19@
 nam|1|name!46&107@
 nor|1|normalize!15&10@
 par|1|parse!17&82@
-pat|2|path!51&83@path!50&99@
+pat|2|path!50&99@path!51&83@
 pau|2|pause!33&74@pause!18&74@
 poi|1|points!35&19@
 pop|3|pop!26&10@pop!27&10@pop!28&10@
@@ -193,7 +193,7 @@ pre|2|prereqs!35&19@preamble!45&91@
 pri|1|priorityFunction!52&11@
 pro|1|project!35&19@
 pus|4|push!26&10@push!27&10@push!28&10@push!29&10@
-que|2|question!50&99@questions!35&19@
+que|2|questions!35&19@question!50&99@
 rai|2|raiseNotDefined!21&98@raiseNotDefined!23&98@
 ran|1|random!53&11@
 rem|1|removeComments!17&82@
@@ -202,10 +202,10 @@ sho|1|shops!38&115@
 sor|1|sortedKeys!15&10@
 sta|1|start!35&19@
 suc|1|success!45&91@
-tes|6|testPass!23&98@testPartial!23&98@testCases!37&99@testFail!23&98@test!45&91@testDict!50&99@
+tes|6|testPass!23&98@testPartial!23&98@testFail!23&98@testDict!50&99@testCases!37&99@test!45&91@
 tim|1|timeout!47&11@
 tot|2|totalCount!15&10@totalCount!15&18@
 tur|1|turn!31&75@
 upd|4|update!33&74@update!18&74@updateDistributions!33&74@update!28&10@
-wri|3|writeSolution!19&90@writeSolution!23&98@write!54&10@
+wri|3|writeSolution!23&98@write!54&10@writeSolution!19&90@
 -- END TREE
